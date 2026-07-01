@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "CRYPTON — Post-Quantum Secure Communication Platform" },
+      { name: "description", content: "CRYPTON is a post-quantum secure communication platform: a purpose-built transport protocol and a drop-in hardware proxy for brownfield infrastructure." },
+      { name: "author", content: "CRYPTON" },
+      { property: "og:title", content: "CRYPTON — Post-Quantum Secure Communication Platform" },
+      { property: "og:description", content: "A post-quantum transport protocol and drop-in hardware proxy. Validated on bare-metal embedded hardware." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@crypton" },
     ],
     links: [
       {
