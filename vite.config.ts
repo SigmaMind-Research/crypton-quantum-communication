@@ -14,6 +14,21 @@ export default defineConfig({
   vite: {
     // Required for project-site GitHub Pages URLs: /<repo>/
     base: ghPagesBase,
+    build: {
+      outDir: ".output",
+    },
+    environments: {
+      client: {
+        build: {
+          outDir: ".output/public",
+        },
+      },
+      server: {
+        build: {
+          outDir: ".output/server",
+        },
+      },
+    },
   },
   tanstackStart: {
     spa: {
