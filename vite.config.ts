@@ -9,6 +9,10 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
 const ghPagesBase =
   process.env.GITHUB_ACTIONS === "true" && repoName ? `/${repoName}/` : "/";
+const routerBasepath =
+  ghPagesBase.endsWith("/") && ghPagesBase.length > 1
+    ? ghPagesBase.slice(0, -1)
+    : ghPagesBase;
 
 export default defineConfig({
   vite: {
@@ -31,6 +35,9 @@ export default defineConfig({
     },
   },
   tanstackStart: {
+    router: {
+      basepath: routerBasepath,
+    },
     spa: {
       enabled: true,
     },
