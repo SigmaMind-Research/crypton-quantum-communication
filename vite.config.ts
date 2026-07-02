@@ -27,7 +27,7 @@ export default defineConfig({
           outDir: ".output/public",
         },
       },
-      server: {
+      ssr: {
         build: {
           outDir: ".output/server",
         },
