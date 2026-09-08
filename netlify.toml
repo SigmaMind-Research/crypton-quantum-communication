@@ -1,0 +1,14 @@
+[build]
+  command = "NITRO_PRESET=netlify npm run build"
+  publish = "dist"
+  functions = ".netlify/functions-internal"
+
+[build.environment]
+  NODE_VERSION = "22.12.0"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
+  force = true
