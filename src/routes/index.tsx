@@ -342,51 +342,75 @@ const HTML = `
     </div>
   </section>
 
-  <!-- SECTION 4: Proxy -->
+  <!-- SECTION 4: Software + Hardware Proxy -->
   <section class="py-16 sm:py-24 border-t hairline fade-up">
-    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-      <div class="lg:col-span-5">
-        <div class="kbd kbd-dim">§ 04 — Deployment</div>
-        <h2 class="font-display text-[32px] sm:text-[56px] leading-[1.02] mt-5 sm:mt-6">
-          Migration without<br/>replacing<br/><span class="italic">infrastructure.</span>
-        </h2>
-        <p class="mt-5 sm:mt-6 text-black/70 text-[15px] sm:text-[17px] leading-[1.6]">
-          Not every network can replace TLS overnight. For brownfield infrastructure, <b>CRYPTON Proxy</b> enables post-quantum migration without modifying existing software or applications.
-        </p>
-        <img src="/full.png" alt="Crypton full view" class="mt-6 w-full h-auto rounded-2xl border hairline" />
-        <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2">
-          ${[
-            ["Legacy Network","Untouched applications, existing stacks"],
-            ["CRYPTON Proxy","Drop-in 1U appliance · line-rate"],
-            ["Quantum-Safe Communication","End-to-end post-quantum transport"],
-          ].map(([t,d],i)=>`
-            <div class="flex items-center gap-2">
-              <span class="kbd kbd-dim w-8 text-center">${String(i+1).padStart(2,'0')}</span>
-              <div class="flex-1 rounded-2xl border hairline p-2">
-                <div class="font-display text-[14px] sm:text-[15px] leading-tight">${t}</div>
-                <div class="text-[11px] sm:text-[12px] text-black/60 mt-1">${d}</div>
-              </div>
-            </div>
-          `).join("")}
+    <div class="kbd kbd-dim">§ 04 — Deployment</div>
+    <h2 class="font-display text-[32px] sm:text-[56px] leading-[1.02] mt-5 sm:mt-6">
+      One proxy.<br/>Two deployment<br/><span class="italic">forms.</span>
+    </h2>
+    <p class="mt-5 max-w-[700px] text-black/70 text-[15px] sm:text-[17px] leading-[1.6]">
+      Choose a software proxy for flexible host and cloud deployments, or a dedicated hardware proxy for predictable line-rate protection at the network edge.
+    </p>
+
+    <div class="mt-12 space-y-8 sm:space-y-10">
+      <!-- Software proxy row -->
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div class="lg:col-span-5 rounded-[24px] border hairline bg-white p-5 sm:p-8 lg:p-10">
+          <div class="flex items-center justify-between">
+            <span class="chip">SOFTWARE</span>
+            <span class="kbd kbd-dim">HOST · CLOUD · CONTAINER</span>
+          </div>
+          <h3 class="font-display text-[30px] sm:text-[40px] leading-tight mt-5">CRYPTON <span class="italic">Software Proxy</span></h3>
+          <p class="mt-4 text-black/65 text-[15px] leading-relaxed">
+            Run the proxy as a Linux daemon, VM, or container. Protect existing applications without changing the application layer.
+          </p>
+          <div class="mt-6 grid sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-2 text-[12px] text-black/65">
+            <div class="rounded-xl border hairline p-3">Linux daemon</div>
+            <div class="rounded-xl border hairline p-3">Container ready</div>
+            <div class="rounded-xl border hairline p-3">No app rewrite</div>
+          </div>
         </div>
+        <figure class="lg:col-span-7 rounded-[24px] bg-[#0A2F1D] p-4 sm:p-6 lg:p-8">
+          <img src="/crypton-proxy.png" alt="Crypton software proxy architecture" class="w-full h-auto max-h-[360px] object-contain mx-auto rounded-2xl border border-white/15" />
+        </figure>
       </div>
 
-      <!-- Hardware renders -->
-      <div class="lg:col-span-7 space-y-4 sm:space-y-6">
-        <figure class="rounded-[24px] bg-[#DCEFE6] p-4 sm:p-6 lg:p-10">
-          <div class="flex items-center justify-between kbd kbd-dim mb-6">
-            <span>CRYPTON PROXY · 1U</span>
+      <!-- Hardware proxy row -->
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div class="lg:col-span-5 rounded-[24px] bg-[#0A2F1D] text-white p-5 sm:p-8 lg:p-10">
+          <div class="flex items-center justify-between">
+            <span class="chip chip-dark">HARDWARE</span>
+            <span class="kbd" style="color:rgba(255,255,255,.55)">1U EDGE APPLIANCE</span>
           </div>
-          <!-- Front view -->
-          <img src="/front.png" alt="Crypton front view" class="w-full h-auto rounded-lg" />
-        </figure>
-        <figure class="rounded-[24px] border hairline p-4 sm:p-6 lg:p-10 bg-white">
-          <div class="flex items-center justify-between kbd kbd-dim mb-6">
-            <span>I/O · POWER · MGMT</span>
+          <h3 class="font-display text-[30px] sm:text-[40px] leading-tight mt-5">CRYPTON <span class="italic">Hardware Proxy</span></h3>
+          <p class="mt-4 text-white/70 text-[15px] leading-relaxed">
+            A dedicated 1U appliance for predictable line-rate protection at the network edge, with no changes to existing software or applications.
+          </p>
+          <div class="mt-6 space-y-2 text-[13px] text-white/70">
+            ${["Drop-in brownfield deployment","Dedicated line-rate processing","Front and rear service access"].map(x=>`<div class="flex items-center gap-3 border-t hairline-dark pt-2"><span class="w-1.5 h-1.5 rounded-full bg-[#D2FF3C]"></span>${x}</div>`).join("")}
           </div>
-          <!-- Rear view -->
-          <img src="/rear.png" alt="Crypton rear view" class="w-full h-auto rounded-lg" />
+        </div>
+        <figure class="lg:col-span-7 rounded-[24px] bg-[#DCEFE6] p-4 sm:p-6 lg:p-8">
+          <img src="/full.png" alt="Crypton hardware proxy full view" class="w-full h-auto max-h-[360px] object-contain mx-auto rounded-2xl" />
         </figure>
+      </div>
+
+      <!-- Hardware front and rear views -->
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+        <div class="lg:col-span-5">
+          <div class="kbd kbd-dim">Hardware views</div>
+          <p class="mt-3 text-black/60 text-[14px] leading-relaxed max-w-[360px]">Inspect the appliance front panel and rear I/O, power, and management interfaces.</p>
+        </div>
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+          <figure class="rounded-[24px] bg-[#DCEFE6] p-4 sm:p-5">
+            <div class="kbd kbd-dim mb-4">FRONT VIEW</div>
+            <img src="/front.png" alt="Crypton hardware proxy front view" class="w-full h-auto rounded-lg" />
+          </figure>
+          <figure class="rounded-[24px] border hairline bg-white p-4 sm:p-5">
+            <div class="kbd kbd-dim mb-4">REAR VIEW · I/O · POWER · MGMT</div>
+            <img src="/rear.png" alt="Crypton hardware proxy rear view" class="w-full h-auto rounded-lg" />
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -399,11 +423,11 @@ const HTML = `
         Choose your <span class="italic">migration path.</span>
       </h2>
       <p class="mt-5 sm:mt-6 text-black/65 text-[15px] sm:text-[16px] leading-[1.6] max-w-[560px]">
-        Two paths, one platform. Both converge on end-to-end post-quantum communication.
+        Three products, one platform. Protocol, proxy, and open-source migration intelligence for end-to-end post-quantum adoption.
       </p>
     </div>
 
-    <div class="mt-12 grid lg:grid-cols-2 gap-6">
+    <div class="mt-12 grid lg:grid-cols-3 gap-6">
       <div class="rounded-[24px] p-5 sm:p-8 lg:p-10 bg-white border hairline card-hover">
         <div class="flex items-center justify-between">
           <span class="chip">GREENFIELD</span>
@@ -422,10 +446,43 @@ const HTML = `
           <span class="kbd" style="color:rgba(255,255,255,.55)">PATH B</span>
         </div>
         <h3 class="font-display text-[30px] sm:text-[34px] mt-5 sm:mt-6">CRYPTON <span class="italic">Proxy</span></h3>
-        <p class="mt-3 text-white/70 text-[15px]">Drop-in appliance for networks that can't rewrite the stack. Post-quantum without code changes.</p>
-        <ul class="mt-8 space-y-2 text-[15px]">
+        <p class="mt-3 text-white/70 text-[15px]">Two deployment forms for brownfield networks: software flexibility or dedicated hardware at the edge.</p>
+        <div class="mt-8 grid sm:grid-cols-2 gap-3">
+          <div class="rounded-2xl border border-white/15 p-4">
+            <div class="kbd" style="color:rgba(255,255,255,.55)">SOFTWARE</div>
+            <div class="font-display text-[20px] mt-2">Software Proxy</div>
+            <div class="text-[12px] text-white/65 mt-1">Host, VM, or container deployment.</div>
+          </div>
+          <div class="rounded-2xl border border-white/15 p-4">
+            <div class="kbd" style="color:rgba(255,255,255,.55)">HARDWARE</div>
+            <div class="font-display text-[20px] mt-2">Hardware Proxy</div>
+            <div class="text-[12px] text-white/65 mt-1">Dedicated 1U line-rate appliance.</div>
+          </div>
+        </div>
+        <ul class="mt-6 space-y-2 text-[15px]">
           ${["Utilities","Factories","Ground Stations","Enterprise Networks","Existing Infrastructure"].map(x=>`<li class="flex items-center gap-3 border-t hairline-dark pt-2 first:border-t-0 first:pt-0"><span class="w-1.5 h-1.5 rounded-full bg-[#D2FF3C]"></span>${x}</li>`).join("")}
         </ul>
+      </div>
+
+      <div class="rounded-[24px] p-5 sm:p-8 lg:p-10 bg-[#F6F8FA] border hairline card-hover">
+        <div class="flex items-center justify-between">
+          <span class="chip">OPEN SOURCE</span>
+          <span class="kbd kbd-dim">PRODUCT C</span>
+        </div>
+        <h3 class="font-display text-[30px] sm:text-[34px] mt-5 sm:mt-6">Crypton <span class="italic">Sweep</span></h3>
+        <p class="mt-3 text-black/65 text-[15px]">Open-source network cipher scanner and post-quantum migration intelligence tool for cryptographic exposure mapping.</p>
+        <ul class="mt-8 space-y-2 text-[15px]">
+          ${[
+            "Discovers reachable services and cryptographic exposure",
+            "Imports/exports CycloneDX SBOM/CBOM inventories",
+            "Builds risk findings, migration priorities, and knowledge graphs",
+            "Generates self-contained HTML reports",
+          ].map(x=>`<li class="flex items-center gap-3 border-t hairline pt-2 first:border-t-0 first:pt-0"><span class="w-1.5 h-1.5 rounded-full bg-[#111]"></span>${x}</li>`).join("")}
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="https://github.com/Gulshan-gaur/crypton-sweep" target="_blank" rel="noreferrer" class="btn-ghost rounded-full px-4 py-2 text-[12px] font-medium tracking-wide inline-flex items-center gap-2">GitHub <span aria-hidden>↗</span></a>
+          <a href="https://crates.io/crates/crypton-sweep" target="_blank" rel="noreferrer" class="btn-ghost rounded-full px-4 py-2 text-[12px] font-medium tracking-wide inline-flex items-center gap-2">crates.io <span aria-hidden>↗</span></a>
+        </div>
       </div>
     </div>
 
@@ -484,31 +541,37 @@ const HTML = `
           </dl> -->
         </div>
 
-        <form class="lg:col-span-6 bg-white rounded-[24px] p-4 sm:p-8 lg:p-10" onsubmit="event.preventDefault(); this.querySelector('button[type=submit]').innerText='Reserved ✓';">
+        <form id="pilot-form" class="lg:col-span-6 bg-white rounded-[24px] p-4 sm:p-8 lg:p-10">
           <div class="kbd kbd-dim">Reserve your pilot spot</div>
           <div class="mt-4">
             <label class="kbd kbd-dim">Role</label>
             <div class="mt-2 flex flex-wrap gap-2" id="roles">
-              ${["Network Architect","Infrastructure Engineer","CISO","Researcher","Systems Integrator","Defense Program"].map((r,i)=>`
+              ${["Network Architect","Infrastructure Engineer","CISO","Researcher","Systems Integrator","Defense Program","Other"].map((r,i)=>`
                 <button type="button" data-role class="role-btn ${i===0?'active':''} rounded-full border hairline px-3.5 py-1.5 text-[12px] font-medium">${r}</button>
               `).join("")}
             </div>
+            <input type="hidden" name="role" id="role-value" value="Network Architect" />
+            <label id="role-other-wrap" class="hidden mt-4 block">
+              <span class="kbd kbd-dim">Other role</span>
+              <input id="role-other-input" name="role_other" type="text" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="Your role"/>
+            </label>
           </div>
           <div class="grid sm:grid-cols-2 gap-4 mt-6">
             <label class="block">
               <span class="kbd kbd-dim">Name</span>
-              <input required type="text" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="Ada Lovelace"/>
+              <input required name="name" type="text" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="Ada Lovelace"/>
             </label>
             <label class="block">
               <span class="kbd kbd-dim">Company</span>
-              <input required type="text" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="Analytical Engines"/>
+              <input required name="company" type="text" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="Analytical Engines"/>
             </label>
             <label class="block sm:col-span-2">
               <span class="kbd kbd-dim">Business Email</span>
-              <input required type="email" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="ada@company.com"/>
+              <input required name="email" type="email" class="mt-2 w-full border-b hairline bg-transparent py-2 outline-none focus:border-[#111]" placeholder="ada@company.com"/>
             </label>
           </div>
           <button type="submit" class="btn-primary rounded-full px-6 py-3.5 mt-8 text-sm font-medium inline-flex items-center gap-2">Reserve Pilot Spot <span>→</span></button>
+          <div id="pilot-form-status" class="mt-3 text-[13px] text-black/60"></div>
           <div class="mt-6 flex flex-wrap gap-4 kbd kbd-dim">
           </div>
         </form>
@@ -528,16 +591,15 @@ const HTML = `
       <div>
         <div class="kbd kbd-dim mb-4">Technology</div>
         <ul class="space-y-2 text-[14px]">
-          <li><a href="#" class="hover:underline">Technical Whitepaper</a></li>
           <li><a href="#" class="hover:underline">Architecture</a></li>
-          <li><a href="#" class="hover:underline">GitHub</a></li>
+          <li><a href="https://github.com/Gulshan-gaur/crypton-sweep" target="_blank" rel="noreferrer" class="hover:underline">GitHub</a></li>
         </ul>
       </div>
       <div>
         <div class="kbd kbd-dim mb-4">Company</div>
         <ul class="space-y-2 text-[14px]">
           <li><a href="#" class="hover:underline">Documentation</a></li>
-          <li><a href="#" class="hover:underline">Contact</a></li>
+          <li><a href="mailto:support-crypton@sigmamind.xyz" class="hover:underline">Support</a></li>
           <li><a href="#" class="hover:underline">Privacy</a></li>
         </ul>
       </div>
@@ -577,26 +639,110 @@ function Index() {
     document.querySelectorAll(".fade-up").forEach((el) => io.observe(el));
 
     // Role selector
+    const form = document.getElementById("pilot-form") as HTMLFormElement | null;
+    const roleValue = document.getElementById("role-value") as HTMLInputElement | null;
+    const roleOtherWrap = document.getElementById("role-other-wrap") as HTMLElement | null;
+    const roleOtherInput = document.getElementById("role-other-input") as HTMLInputElement | null;
+    const statusEl = document.getElementById("pilot-form-status") as HTMLElement | null;
+    const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+    const setRole = (role: string) => {
+      if (roleValue) roleValue.value = role;
+      const isOther = role === "Other";
+      if (roleOtherWrap) roleOtherWrap.classList.toggle("hidden", !isOther);
+      if (roleOtherInput) {
+        roleOtherInput.required = isOther;
+        if (!isOther) roleOtherInput.value = "";
+      }
+    };
+
+    const activeRoleBtn = document.querySelector("[data-role].active") as HTMLButtonElement | null;
+    if (activeRoleBtn) setRole(activeRoleBtn.textContent?.trim() ?? "Network Architect");
+
     const onClick = (ev: Event) => {
       const t = ev.target as HTMLElement;
-      if (t.matches("[data-role]")) {
+      const roleBtn = t.closest("[data-role]") as HTMLButtonElement | null;
+      if (roleBtn) {
         document.querySelectorAll("[data-role]").forEach((b) => b.classList.remove("active"));
-        t.classList.add("active");
+        roleBtn.classList.add("active");
+        setRole(roleBtn.textContent?.trim() ?? "Network Architect");
       }
-      if (t.matches("[data-bench-tab]")) {
-        const target = t.getAttribute("data-target");
+      const benchBtn = t.closest("[data-bench-tab]") as HTMLElement | null;
+      if (benchBtn) {
+        const target = benchBtn.getAttribute("data-target");
         document.querySelectorAll("[data-bench-tab]").forEach((b) => b.classList.remove("active"));
-        t.classList.add("active");
+        benchBtn.classList.add("active");
         document.querySelectorAll("[data-bench-panel]").forEach((p) => p.classList.add("hidden"));
         if (target) {
           document.querySelector(`[data-bench-panel="${target}"]`)?.classList.remove("hidden");
         }
       }
     };
+
+    const onSubmit = async (ev: Event) => {
+      ev.preventDefault();
+      if (!form || !submitBtn || !statusEl || !roleValue) return;
+
+      const formData = new FormData(form);
+      const name = String(formData.get("name") ?? "").trim();
+      const company = String(formData.get("company") ?? "").trim();
+      const email = String(formData.get("email") ?? "").trim();
+      const selectedRole = roleValue.value.trim();
+      const otherRole = roleOtherInput?.value.trim() ?? "";
+      const role = selectedRole === "Other" ? otherRole : selectedRole;
+
+      if (!role) {
+        statusEl.textContent = "Please enter your role.";
+        statusEl.className = "mt-3 text-[13px] text-red-600";
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitting...";
+      statusEl.textContent = "";
+
+      try {
+        const payload = {
+          name,
+          company,
+          email,
+          role,
+          submittedAt: new Date().toISOString(),
+          source: window.location.href,
+        };
+
+        const response = await fetch("/api/pilot-reserve", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+
+        form.reset();
+        document.querySelectorAll("[data-role]").forEach((b) => b.classList.remove("active"));
+        const firstRole = document.querySelector("[data-role]") as HTMLButtonElement | null;
+        if (firstRole) {
+          firstRole.classList.add("active");
+          setRole(firstRole.textContent?.trim() ?? "Network Architect");
+        }
+        submitBtn.innerText = "Reserved ✓";
+        statusEl.textContent = "Thanks. Your pilot request was submitted.";
+        statusEl.className = "mt-3 text-[13px] text-emerald-700";
+      } catch {
+        submitBtn.innerText = "Reserve Pilot Spot";
+        statusEl.textContent = "Submission failed. Please try again.";
+        statusEl.className = "mt-3 text-[13px] text-red-600";
+      } finally {
+        submitBtn.disabled = false;
+      }
+    };
+
     document.addEventListener("click", onClick);
+    form?.addEventListener("submit", onSubmit);
     return () => {
       io.disconnect();
       document.removeEventListener("click", onClick);
+      form?.removeEventListener("submit", onSubmit);
     };
   }, []);
 

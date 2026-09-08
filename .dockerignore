@@ -1,0 +1,8 @@
+node_modules
+.git
+.github
+.output
+.tanstack
+.wrangler
+npm-debug.log
+README.md
